@@ -208,11 +208,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\v.baz\\RiderProjects\\Tetris\\Tetris\\Tetris.csproj",
+      "projectUniqueName": "C:\\Users\\v.baz\\Work\\Projects Coding\\Tetris-Console\\Tetris\\Tetris\\Tetris.csproj",
       "projectName": "Tetris",
-      "projectPath": "C:\\Users\\v.baz\\RiderProjects\\Tetris\\Tetris\\Tetris.csproj",
+      "projectPath": "C:\\Users\\v.baz\\Work\\Projects Coding\\Tetris-Console\\Tetris\\Tetris\\Tetris.csproj",
       "packagesPath": "C:\\Users\\v.baz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\v.baz\\RiderProjects\\Tetris\\Tetris\\obj\\",
+      "outputPath": "C:\\Users\\v.baz\\Work\\Projects Coding\\Tetris-Console\\Tetris\\Tetris\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\v.baz\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -7,16 +7,23 @@ namespace Tetris.Manager;
 public class GameManager : IComponent
 {
     private Engine.Engine _engine;
+    
     private GameGrid _grid;
+    
     private GridRenderer _renderer;
+    
     private Tetromino currentPiece;
+    
     Random random = new();
+
+    private List<string> container = new List<string>();
 
     public GameManager(Engine.Engine engine, GameGrid grid, GridRenderer renderer)
     {
         _engine = engine;
         _grid = grid;
         _renderer = renderer;
+        InitializeContainer();
     }
 
     private void SpawnNextPiece()
@@ -53,7 +60,7 @@ public class GameManager : IComponent
         
         if (scoreMultiplier > 0)
         {
-            SoundManager.PlayCollect();
+            SoundManager.PlayCollect(scoreMultiplier);
         }
         
         SpawnNextPiece(); 
@@ -61,14 +68,25 @@ public class GameManager : IComponent
 
     private string GetRandomPiece()
     {
-        int size = TetrominoData.Shapes.Count;
-        int rndN = random.Next(0, size);
-        return TetrominoData.Shapes.Keys.ElementAt(rndN);
+        if (container.Count == 0) InitializeContainer();
+        string piece = container[0];
+        container.RemoveAt(0);
+        return piece;
     }
     
     private void GameOver()
     {
         Console.WriteLine("GAME OVER");
         Environment.Exit(0); 
+    }
+
+    private void InitializeContainer()
+    {
+        foreach (var str in TetrominoData.Shapes.Keys)
+        {
+            container.Add(str);
+        }
+
+        container.Shuffle();
     }
 }

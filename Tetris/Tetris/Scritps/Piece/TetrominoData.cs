@@ -15,4 +15,14 @@ public static class TetrominoData
         { "L", [(0, 0), (-1, 0), (1, 0), (1, 1)] },
     };
     
+    public static readonly Dictionary<string, string> PieceColors = new()
+    {
+        { "I", "\u001b[36m" }, 
+        { "O", "\u001b[33m" }, 
+        { "T", "\u001b[35m" }, 
+        { "S", "\u001b[32m" }, 
+        { "Z", "\u001b[31m" },
+        { "J", "\u001b[34m" }, 
+        { "L", "\u001b[38;5;208m" } 
+    };
 }

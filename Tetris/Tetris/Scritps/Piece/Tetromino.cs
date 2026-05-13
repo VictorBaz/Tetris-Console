@@ -11,6 +11,8 @@ public class Tetromino : IComponent, IDrawable
     public List<(int x, int y)> GetRelativeBlocks() => _currentShape;
     
     private List<(int x, int y)> _currentShape;
+    
+    public string Type { get; private set; }
 
     private GameGrid gameGrid;
     
@@ -25,6 +27,7 @@ public class Tetromino : IComponent, IDrawable
     {
         this.gameGrid = gameGrid;
         _currentShape = TetrominoData.Shapes.GetValueOrDefault(key) ?? throw new InvalidOperationException();
+        Type = key;
         X = gameGrid.Width / 2;
         Y = 1;
     }
@@ -60,7 +63,6 @@ public class Tetromino : IComponent, IDrawable
             if (Console.KeyAvailable)
             {
                 var key = Console.ReadKey(true).Key;
-
                 switch (key)
                 {
                     case ConsoleKey.LeftArrow:
@@ -115,6 +117,7 @@ public class Tetromino : IComponent, IDrawable
         return true;
     }
 
+    //TODO SRS
     private void Rotate()
     {
         List<(int, int)> nextShape = new List<(int, int)>(_currentShape.Count);

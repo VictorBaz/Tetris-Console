@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qg+3sxUHQpI=",
+  "dgSpecHash": "mrOUUjxsWz8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\v.baz\\RiderProjects\\Tetris\\Tetris\\Tetris.csproj",
+  "projectFilePath": "C:\\Users\\v.baz\\Work\\Projects Coding\\Tetris-Console\\Tetris\\Tetris\\Tetris.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\v.baz\\.nuget\\packages\\naudio\\2.2.1\\naudio.2.2.1.nupkg.sha512",
     "C:\\Users\\v.baz\\.nuget\\packages\\naudio.asio\\2.2.1\\naudio.asio.2.2.1.nupkg.sha512",
