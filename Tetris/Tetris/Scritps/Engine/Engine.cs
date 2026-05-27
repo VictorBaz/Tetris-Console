@@ -19,13 +19,18 @@ public class Engine
         if (index != -1) _toRemoveIndices.Add(index);
     }
 
+    private bool running = false;
+
     public void Run()
     {
+        Start();
         Stopwatch stopwatch = new();
         stopwatch.Start(); 
     
         while (true)
         {
+            if (!running) return;
+            
             SyncComponents();
         
             double deltaTime = stopwatch.Elapsed.TotalSeconds;
@@ -70,4 +75,8 @@ public class Engine
             _toAdd.Clear(); 
         }
     }
+
+    public void Start() => running = true;
+
+    public void Stop() => running = false;
 }

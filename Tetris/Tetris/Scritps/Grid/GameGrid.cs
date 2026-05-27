@@ -60,4 +60,11 @@ public class GameGrid
         
         for (int x = 0; x < Width; x++) Matrix[0, x] = 0;
     }
+
+    public void Clear()
+    {
+        for (int y = 0; y < Height; y++)
+        for (int x = 0; x < Width; x++)
+            Matrix[y, x] = 0;
+    }
 }

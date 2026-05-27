@@ -12,7 +12,7 @@ public class GameManager : IComponent
     
     private GridRenderer _renderer;
     
-    private Tetromino currentPiece;
+    private Tetromino? currentPiece;
     
     Random random = new();
 
@@ -76,8 +76,30 @@ public class GameManager : IComponent
     
     private void GameOver()
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("GAME OVER");
-        Environment.Exit(0); 
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("Press R to restart or escape to quit.");
+        Console.ForegroundColor = ConsoleColor.White;
+
+        bool exitPressed = false;
+        
+        while (!exitPressed)
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.R:
+                    RestartGame();
+                    exitPressed = true;
+                    break;
+                case ConsoleKey.Escape:
+                    exitPressed = true; 
+                    Environment.Exit(0);
+                    break;
+            }
+        }
     }
 
     private void InitializeContainer()
@@ -88,5 +110,23 @@ public class GameManager : IComponent
         }
 
         container.Shuffle();
+    }
+    
+    public void RestartGame()
+    {
+        _engine.Stop(); 
+
+        _grid.Clear(); 
+
+        if (currentPiece != null)
+        {
+            _engine.RemoveComponent(currentPiece);
+            _renderer.UnregisterDrawable(currentPiece);
+            currentPiece.OnLockDown -= OnLockDown;
+            currentPiece = null;
+        }
+
+        _engine.Start(); 
+        SpawnNextPiece();
     }
 }
